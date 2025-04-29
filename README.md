@@ -27,18 +27,19 @@ El enfoque principal del proyecto es demostrar el uso de **microservicios** como
 
 La aplicación está compuesta por varios microservicios independientes:
 
-| Microservicio        | Funcionalidad                                     |
-|----------------------|---------------------------------------------------|
-| **API Gateway**       | Entrada única para peticiones externas.          |
-| **Auth Service**      | Registro, login y autenticación de usuarios.     |
-| **User Group Service**| Gestión de grupos privados y miembros.           |
-| **Validation Service**| Validación de respuestas para ingresar a grupos. |
-| **Media Feed Service**| Gestión de publicaciones de fotos.               |
-| **Notification Service**| Programación de notificaciones diarias.       |
+| Microservicio            | Funcionalidad                                    |
+| ------------------------ | ------------------------------------------------ |
+| **API Gateway**          | Entrada única para peticiones externas.          |
+| **Auth Service**         | Registro, login y autenticación de usuarios.     |
+| **User Group Service**   | Gestión de grupos privados y miembros.           |
+| **Validation Service**   | Validación de respuestas para ingresar a grupos. |
+| **Media Feed Service**   | Gestión de publicaciones de fotos.               |
+| **Notification Service** | Programación de notificaciones diarias.          |
 
 Cada microservicio tiene su propia base de datos y se comunica mediante **REST APIs**.
 
 **Tecnologías utilizadas:**
+
 - Backend: Node.js (Express) / Alternativamente Spring Boot (Java)
 - Bases de datos: PostgreSQL o MongoDB
 - Contenerización: Docker
@@ -68,12 +69,14 @@ be-real-for-friends/
 ## 🚀 Cómo levantar el proyecto (modo desarrollo)
 
 1. Clonar el repositorio:
+
    ```bash
    git clone https://github.com/tu-usuario/be-real-for-friends.git
    cd be-real-for-friends
    ```
 
 2. Construir y levantar los contenedores:
+
    ```bash
    docker-compose up --build
    ```
@@ -86,7 +89,7 @@ be-real-for-friends/
 
 - [x] Definición de la arquitectura
 - [x] Configuración de microservicios base
-- [ ] Implementación de Auth Service
+- [x] Implementación de Auth Service
 - [ ] Implementación de User Group Service
 - [ ] Implementación de Media Feed Service
 - [ ] Simulación de notificaciones diarias

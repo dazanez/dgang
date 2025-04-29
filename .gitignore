@@ -10,6 +10,10 @@ instance/
 *.env
 *.sqlite3
 
+#Secret keys
+key.json
+auth-service/key.json
+
 # Java Spring Boot
 target/
 *.class

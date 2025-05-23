@@ -3,13 +3,17 @@ from dotenv import load_dotenv
 import firebase_admin
 from firebase_admin import credentials
 
-load_dotenv()
+load_dotenv(override=True)
 
 # Flask configuration
 FLASK_HOST = os.getenv('FLASK_HOST', '0.0.0.0')
 FLASK_PORT = int(os.getenv('FLASK_PORT', 5000))
 JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', 'your-secret-key')
 JWT_EXPIRATION_HOURS = int(os.getenv('JWT_EXPIRATION_HOURS', 24))
+print(f"JWT_EXPIRATION_HOURS: {JWT_EXPIRATION_HOURS}")
+print(f"FLASK_PORT: {FLASK_PORT}")
+print(f"FLASK_HOST: {FLASK_HOST}")
+print(f"JWT_SECRET_KEY: {JWT_SECRET_KEY}")
 
 # Firebase configuration
 try:

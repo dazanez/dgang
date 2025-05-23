@@ -3,7 +3,7 @@ from firebase_admin import auth
 import jwt
 from datetime import datetime, timedelta
 from functools import wraps
-from config import JWT_SECRET_KEY, JWT_EXPIRATION_HOURS, FLASK_HOST, FLASK_PORT
+from .config import JWT_SECRET_KEY, JWT_EXPIRATION_HOURS, FLASK_HOST, FLASK_PORT
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -37,12 +37,14 @@ def register():
             password=password
         )
         
-        # Generate JWT token
+        # Generate JWT token with sub claim
         token = jwt.encode({
             'uid': user.uid,
+            'sub': user.uid,  # Add the sub claim
+            'email': user.email,
             'exp': datetime.utcnow() + timedelta(hours=JWT_EXPIRATION_HOURS)
         }, JWT_SECRET_KEY)
-        
+
         return jsonify({
             'message': 'Successfully registered',
             'token': token,
@@ -65,9 +67,11 @@ def login():
         # Verify the user credentials with Firebase
         user = auth.get_user_by_email(email)
         
-        # Generate JWT token
+        # Generate JWT token with sub claim
         token = jwt.encode({
             'uid': user.uid,
+            'sub': user.uid,  # Add the sub claim
+            'email': user.email,
             'exp': datetime.utcnow() + timedelta(hours=JWT_EXPIRATION_HOURS)
         }, JWT_SECRET_KEY)
         
